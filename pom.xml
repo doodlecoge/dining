@@ -9,7 +9,9 @@
     <url>http://maven.apache.org</url>
 
     <scm>
-        <url></url>
+        <connection>scm:git:https://github.com/doodlecoge/dining.git</connection>
+        <developerConnection>scm:git:https://github.com/doodlecoge/dining.git</developerConnection>
+        <url>scm:git:https://github.com/doodlecoge/dining</url>
     </scm>
 
     <dependencies>
@@ -17,6 +19,37 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>1.2</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>create</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <format>{0,date,yyyyMMddHHmmss}</format>
+                    <items>
+                        <item>timestamp</item>
+                    </items>
+                    <doCheck>false</doCheck>
+                    <doUpdate>false</doUpdate>
+                </configuration>
+            </plugin>
+        </plugins>
+
         <finalName>dining</finalName>
     </build>
 </project>
