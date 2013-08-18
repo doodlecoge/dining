@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+    <context:component-scan base-package="com.hch.action"></context:component-scan>
+    <mvc:annotation-driven></mvc:annotation-driven>
+
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+        <!--<property name="prefix" value="/WEB-INF/vms/"></property>-->
+        <property name="suffix" value=".vm"/>
+
+        <!--
+        <property name="exposeSpringMacroHelpers" value="true"/>
+        <property name="exposeRequestAttributes" value="true"/>
+        <property name="exposeSessionAttributes" value="true"/>
+        <property name="contentType" value="text/html;charset=UTF-8"/>
+        <property name="dateToolAttribute" value="dateTool"/>
+        -->
+
+        <!-- velocity toolbox -->
+        <!--<property name="toolboxConfigLocation" value="/WEB-INF/vm/toolbox.xml"/>-->
+        <!--<property name="toolboxConfigLocation" value="classpath:toolbox.xml"/>-->
+    </bean>
+
+
+    <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+        <property name="resourceLoaderPath" value="/WEB-INF/vms/"/>
+        <property name="configLocation" value="classpath:velocity.properties"/>
+
+
+        <!--
+        <property name="velocityProperties">
+            <props>
+                <prop key="input.encoding">UTF-8</prop>
+                <prop key="output.encoding">UTF-8</prop>
+                <prop key="contentType">text/html;charset=UTF-8</prop>
+
+                <prop key="file.resource.loader.cache">false</prop>
+                <prop key="file.resource.loader.modificationCheckInterval">1</prop>
+                <prop key="velocimacro.library.autoreload">true</prop>
+
+                <prop key="velocimacro.library">macro.vm</prop>
+
+                <prop key="runtime.log.logsystem.class">org.apache.velocity.runtime.log.SimpleLog4JLogSystem</prop>
+                <prop key="runtime.log">com.sa</prop>
+                <prop key="runtime.log.error.stacktrace">true</prop>
+                <prop key="runtime.log.warn.stacktrace">true</prop>
+                <prop key="runtime.log.info.stacktrace">false</prop>
+                <prop key="runtime.log.invalid.reference">true</prop>
+            </props>
+        </property>
+        -->
+    </bean>
+</beans>
