@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>${title} - Zangqiu, Ver.$ver</title>
+    <link type="text/css" rel="stylesheet" href="${base}/css/font-awesome.css"/>
+    <link type="text/css" rel="stylesheet" href="${base}/css/bootstrap.css"/>
+    <link type="text/css" rel="stylesheet" href="${base}/css/main.css"/>
+
+    ${head}
+</head>
+<body>
+    #parse("/WEB-INF/decorators/nav.vm")
+    ${body}
+</body>
+</html>
